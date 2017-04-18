@@ -17,7 +17,7 @@ And we will tell them whether they won or lost.
 1. `bundle install` (or `bundle` for short)
 1. `rails server` (or `rails s` for short)
 1. Navigate to [http://localhost:3000](http://localhost:3000) in Chrome — there's nothing there but the default Rails welcome screen!
-1. **This is a brand new, untouched Rails application.** All we've done is run the command `rails new omnicalc_params` to generate the basic structure of folders and files you see in your editor's sidebar, and we've added the instructions you're reading in this README.
+1. **This is a brand new, untouched Rails application.** All we've done is run the command `rails new rps_rcav` to generate the basic structure of folders and files you see in your editor's sidebar, and we've added the instructions you're reading in this README.
 
    **You could generate a brand new Rails app yourself right now by doing the same thing:**
 
@@ -58,7 +58,7 @@ Once you have completed the above for all three URLs,
  1. If you want to, you can also create another stylesheet for additional styles in the `public/` folder and link to that (for example, if you want to add our standard vertical spacers).
  1. You will find the `<head>` of _all_ of our view templates in the file `app/views/layouts/application.html.erb`, which is a wrapper or "layout" that surrounds every view template that we send to our users.
 
-    If you go example the `application.html.erb` file that we got out-of-the-box when we ran `rails new`, you'll see that it includes all of the usual HTML boilerplate -- `<!DOCTYPE>`, `<html>`, etc.
+    If you go examine the `application.html.erb` file that we got out-of-the-box when we ran `rails new`, you'll see that it includes all of the usual HTML boilerplate -- `<!DOCTYPE>`, `<html>`, etc.
 
     Notice the line that says `<%= yield %>.` That is where the contents of our view templates get plugged in before the entire response gets sent to our users' browsers.
 
