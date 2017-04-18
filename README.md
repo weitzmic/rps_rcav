@@ -6,21 +6,29 @@ We are going to build a simple game. Users are allowed to choose Rock, Paper, or
  - [http://localhost:3000/paper](http://localhost:3000/paper)
  - [http://localhost:3000/scissors](http://localhost:3000/scissors)
 
-And we will tell them whether they won or lost. Your target, in the end, is this:
+And we will tell them whether they won or lost.
 
-https://rps-rcav-target.herokuapp.com
+#### [Here is the target you will ultimately build.](https://rps-rcav-target.herokuapp.com)
 
-### Setup
+## Project Specific Setup
 
- - **Fork this repository.**
- - Clone your Fork (Open in Desktop)
- - In Terminal, `cd` to the root folder of the application.
- - `bundle install` (or just `bundle` for short). This makes sure that your laptop has all the gems it needs for this project. You only need to `bundle` once per project.
- - `rails server` (or just `rails s` for short). This starts up the app server so you can visit localhost:3000 and see it running. Ctrl-C to shut it down when you're done working.
- - Once the server has booted up successfully, visit [http://localhost:3000](http://localhost:3000) in Chrome. If all went well, you should see the "Welcome Aboard" page.
- - Open up the entire folder of code in Atom.
+1. Fork and clone as usual.
+1. `cd` into the folder you downloaded.
+1. `bundle install` (or `bundle` for short)
+1. `rails server` (or `rails s` for short)
+1. Navigate to [http://localhost:3000](http://localhost:3000) in Chrome — there's nothing there but the default Rails welcome screen!
+1. **This is a brand new, untouched Rails application.** All we've done is run the command `rails new omnicalc_params` to generate the basic structure of folders and files you see in your editor's sidebar, and we've added the instructions you're reading in this README.
 
-### Part 1
+   **You could generate a brand new Rails app yourself right now by doing the same thing:**
+
+   1. Open a terminal window and `cd` to the folder where you store your code.
+   1. `rails new your_own_app_name`
+   1. `cd your_own_app_name`
+   1. `rails s`
+
+   That's it! You'd then see the same welcome screen at [http://localhost:3000](http://localhost:3000), and you would be ready to start building out your Rails app.
+
+## Route → Controller → Action → View
 
 This is currently a brand new Rails app, with absolutely no routes, controllers, etc.
 
@@ -30,21 +38,31 @@ Add support for [each](http://localhost:3000/rock) [of](http://localhost:3000/pa
  1. Now step back into the action and write some logic to determine whether the player won or lost. Put the computer move and the outcome into instance variables.
  1. In the view template, display the instance variables. Format it a little with some markup and some copy.
 
-### Part 2
+## Optional Challenges
 
 Once you have completed the above for all three URLs,
 
  1. On each page, add links to get to the other two pages (so that our users don't have to keep typing into the address bar).
- 1. I dropped `bootstrap.css` in the `public/assets/css` folder. That means that it is accessible at [http://localhost:3000/assets/css/bootstrap.css](http://localhost:3000/assets/css/bootstrap.css) (without the `public/`). That means that we can link to it in the head of our document:
+ 1. We've already connected `bootstrap.css`, so you can just start using the [Bootstrap classes and components](http://getbootstrap.com/components/#btn-groups) in your view templates.
+ 1. You can also add any images that you like to the `public/` folder, and use them as the `src` for `<img>`s.
 
-        <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    For example, if you create a file called `public/rock_image.jpg`, you can use it in like this:
 
-    If you want to, you can also create another stylesheet for additional styles in the `public/` folder and link to that, too (for example, if you want to add our standard vertical spacers).
+    ```html
+    <img src="/rock_image.jpg">
+    ```
 
-    You can also add any images that you like to the `public/` folder, and use them in the same way as the `src` for `<img>`s. However, coincidentally...
+    Notice that the file just get served directly from the root of the domain if you place it directly in the `public/` folder. You can also create subfolders to keep things organized, if you like.
 
- 1. [Font Awesome](http://fontawesome.io/icons/) has icons for rock, paper, and scissors. Find them and use them. The easiest way to include Font Awesome in your project is to link to [BootstrapCDN](https://www.bootstrapcdn.com/fontawesome/). (If you want to, feel free to use a [Bootswatch](https://www.bootstrapcdn.com/bootswatch/) from there, too.)
+ 1. That said, [Font Awesome](http://fontawesome.io/icons/) has icons for rock, paper, and scissors. Find them and use them. Font Awesome is already connected this project, so you can just start adding [the icons](http://fontawesome.io/icons/).
+ 1. If you want to, you can also create another stylesheet for additional styles in the `public/` folder and link to that (for example, if you want to add our standard vertical spacers).
+ 1. You will find the `<head>` of _all_ of our view templates in the file `app/views/layouts/application.html.erb`, which is a wrapper or "layout" that surrounds every view template that we send to our users.
+
+    If you go example the `application.html.erb` file that we got out-of-the-box when we ran `rails new`, you'll see that it includes all of the usual HTML boilerplate -- `<!DOCTYPE>`, `<html>`, etc.
+
+    Notice the line that says `<%= yield %>.` That is where the contents of our view templates get plugged in before the entire response gets sent to our users' browsers.
+
+    This is a great way to DRY (Don't Repeat Yourself) up repetitive markup like navbars, footers, links to stylesheets, etc. It's one of _many_ advantages to using a dynamic framework like Rails over writing static HTML.
  1. Add a root URL such that visiting the bare domain, [http://localhost:3000](http://localhost:3000), leads to a landing page with some information about the game. (Hint: the first argument of the route will just be the plain slash, like so:
 
         get("/", { # etc ...
-
