@@ -46,7 +46,7 @@ Once you have completed the above for all three URLs,
  1. We've already connected `bootstrap.css`, so you can just start using the [Bootstrap classes and components](http://getbootstrap.com/components/#btn-groups) in your view templates.
  1. You can also add any images that you like to the `public/` folder, and use them as the `src` for `<img>`s.
 
-    For example, if you create a file called `public/rock_image.jpg`, you can use it in like this:
+    For example, if you create a file called `public/rock_image.jpg`, you can use it like this:
 
     ```html
     <img src="/rock_image.jpg">
